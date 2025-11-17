@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(34, 33, 33);
+}
+
+header img {
+    width: 260px;
+    padding-left: 32px;
+}
+
+header a {
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    gap: 32px;
+    padding-right: 32px;
+}
+
+main {
+    max-width: 1920px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url(./img/bckgrd-1.jpg);
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: 100% auto
+}
+
+.picture-board {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.picture-board img {
+    height: 200px;
+    width: 200px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(213, 25, 226);
+}
+
+.picture-board img:hover {
+    opacity: 0.6;
+    box-shadow: 4px 4px 2px rgb(213, 25, 226);
+}
+
+h1 {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    font-size: 54px;
+    color: rgb(213, 25, 226);
+    text-shadow: 3px 3px 5px rgb(124, 4, 4);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    height: 68px;
+    background-color: rgb(34, 33, 33);
+}
