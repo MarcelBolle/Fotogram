@@ -1,86 +1,83 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fotogram</title>
-    <link
-      rel="shortcut icon"
-      href="./img/Logo/favicon.svg"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="./img/Logo/favicon.svg" type="image/x-icon" />
     <link rel="stylesheet" href="./style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <header>
-      <img src="./img/Logo/Fotogram_Logo.svg" alt="Fotogram Logo" />
-      <nav class="navbar">
-        <a href="#">Kontakt</a>
-        <a href="#">Impressum</a>
-      </nav>
+        <img src="./img/Logo/Fotogram_Logo.svg" alt="Fotogram Logo" />
+        <nav class="navbar">
+            <a href="#">Kontakt</a>
+            <a href="#">Impressum</a>
+        </nav>
     </header>
 
     <main>
-      <div class="gallery">
-        <h1>Mein Fotogram</h1>
-        <div class="picture-board">
-          <a onclick="openPictureDialog()"  class="thumbnail" >
-            <img src="./img/mount-1.jpg" alt="" />
-          </a>
-          <a onclick="openPictureDialog()" class="thumbnail">
-            <img src="./img/mount-2.jpg" alt="" />
-          </a>
-          <a onclick="openPictureDialog()" class="thumbnail">
-            <img src="./img/mount-3.jpg" alt="" />
-          </a>
-          <a onclick="openPictureDialog()" class="thumbnail">
-            <img src="./img/mount-4.jpg" alt="" />
-          </a>
-          <a onclick="openPictureDialog()" class="thumbnail">
-            <img src="./img/mount-5.jpg" alt="" />
-          </a>
-          <a onclick="openPictureDialog()" class="thumbnail">
-            <img src="./img/mount-6.jpg" alt="" />
-          </a>
-          <a onclick="openPictureDialog()" class="thumbnail">
-            <img src="./img/mount-7.jpg" alt="" />
-          </a>
-          <a onclick="openPictureDialog()" class="thumbnail">
-            <img src="./img/mount-8.jpg" alt="" />
-          </a>
-          <a onclick="openPictureDialog()" class="thumbnail">
-            <img src="./img/mount-9.jpg" alt="" />
-          </a>
-          <a onclick="openPictureDialog()" class="thumbnail">
-            <img src="./img/mount-10.jpg" alt="" />
-          </a>
-          <a onclick="openPictureDialog()" class="thumbnail">
-            <img src="./img/mount-11.jpg" alt="" />
-          </a>
-          <a onclick="openPictureDialog()" class="thumbnail">
-            <img src="./img/mount-12.jpg" alt="" />
-          </a>
+        <div class="gallery">
+            <h1>Mein Fotogram</h1>
+            <div class="picture-board">
+                <a href="./img/mount-1.jpg" class="thumbnail">
+                    <img src="./img/mount-1.jpg" alt="" />
+                </a>
+                <a href="./img/mount-2.jpg" class="thumbnail">
+                    <img src="./img/mount-2.jpg" alt="" />
+                </a>
+                <a href="./img/mount-3.jpg" class="thumbnail">
+                    <img src="./img/mount-3.jpg" alt="" />
+                </a>
+                <a href="./img/mount-4.jpg" class="thumbnail">
+                    <img src="./img/mount-4.jpg" alt="" />
+                </a>
+                <a href="./img/mount-5.jpg" class="thumbnail">
+                    <img src="./img/mount-5.jpg" alt="" />
+                </a>
+                <a href="./img/mount-6.jpg" class="thumbnail">
+                    <img src="./img/mount-6.jpg" alt="" />
+                </a>
+                <a href="./img/mount-7.jpg" class="thumbnail">
+                    <img src="./img/mount-7.jpg" alt="" />
+                </a>
+                <a href="./img/mount-8.jpg" class="thumbnail">
+                    <img src="./img/mount-8.jpg" alt="" />
+                </a>
+                <a href="./img/mount-9.jpg" class="thumbnail">
+                    <img src="./img/mount-9.jpg" alt="" />
+                </a>
+                <a href="./img/mount-10.jpg" class="thumbnail">
+                    <img src="./img/mount-10.jpg" alt="" />
+                </a>
+                <a href="./img/mount-11.jpg" class="thumbnail">
+                    <img src="./img/mount-11.jpg" alt="" />
+                </a>
+                <a href="./img/mount-12.jpg" class="thumbnail">
+                    <img src="./img/mount-12.jpg" alt="" />
+                </a>
+            </div>
         </div>
-      </div>
-      <dialog id="pictureDialog" class="picturedialog">
-        <header>
-          <button onclick="closePictureDialog()">schliessen</button>
-        </header>
-        <section>
-          <img id="dialogPicture" src="" alt="" />
-        </section>
-        <footer>
-          <button>zurück</button>
-          <button>weiter</button>
-        </footer>
-      </dialog>
+        <dialog id="pictureDialog" class="picturedialog">
+            <section>
+                <img id="dialogPicture" src="" alt="" />
+            </section>
+            <div>
+                <button>zurück</button>
+                <button id="closePictureDialogButton">schliessen</button>
+
+                <button>weiter</button>
+            </div>
+        </dialog>
     </main>
 
     <footer>
-      <h3>&copy Marcel Brunner</h3>
+        <h3>&copy Marcel Brunner</h3>
     </footer>
 
     <script src="./script.js"></script>
-  </body>
+</body>
+
 </html>

@@ -1,25 +1,21 @@
 const dialogRef = document.getElementById("pictureDialog");
 const dialogPicture = document.getElementById("dialogPicture");
+const thumbnails = document.querySelectorAll(".thumbnail");
 
-function openPictureDialog(params) {
-    dialogRef.showModal();
-}
+// Klick auf Thumbnail -> Bild im Dialog setzen + Dialog öffnen
+thumbnails.forEach((thumb) => {
+  thumb.addEventListener("click", (e) => {
+    e.preventDefault(); // Verhindert normales Link-Verhalten
 
-function closePictureDialog() {
-    dialogRef.close();
-}
+    const bigPicture = thumb.getAttribute("href"); // Pfad aus href
+    dialogPicture.src = bigPicture;                // Bild im Dialog setzen
 
+    dialogRef.showModal();                         // Dialog öffnen
+  });
+});
 
-
-
-
-// const thumbs = document.querySelectorAll(".thumbnail");
-
-// thumbs.forEach((thumb) => {
-//     thumb.addEventListener("click" , (e) => {
-//         e.preventDefault();
-
-//         const fullImg =thumb.getAttribute("href")
-//         console.log(fullImg);
-//     })
-// })
+// Schließen-Button im Dialog
+const closeBtn = document.getElementById("closePictureDialogButton");
+closeBtn.addEventListener("click", () => {
+  dialogRef.close();
+});

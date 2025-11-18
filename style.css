@@ -83,18 +83,18 @@ footer h3 {
   color: white;
 }
 
-.picturedialog {
-  border: 5px solid red;
-   /* display: flex;
-  justify-content: center;
-  align-items: center; */
+#pictureDialog {
+  max-width: 90vw;
+  max-height: 90vh;
+  padding: 0;
+  border: none;
 }
 
-.picturedialog::backdrop{
-  /* max-width: 400px;
-  max-height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
-  background-color: aqua;
+#pictureDialog img {
+  display: block;
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
 }
