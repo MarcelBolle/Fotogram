@@ -1,48 +1,91 @@
-const dialogRef = document.getElementById("pictureDialog");
-const dialogPicture = document.getElementById("dialogPicture");
-const thumbnails = document.querySelectorAll(".thumbnail");
+
+const FADE_DURATION_MS = 200;
+const THUMBNAILS = document.querySelectorAll(".thumbnail");
+const DIALOG_PICTURE = document.getElementById("dialogPicture");
+const DIALOG_REF = document.getElementById("pictureDialog");
 
 let currentIndex = 0;
 
-thumbnails.forEach((thumb) => {
-  thumb.addEventListener("click", (e) => {
-    e.preventDefault();                             // Verhindert normales Link-Verhalten
+/* Opens the picture dialog with the image at the given index.*/
 
-    const bigPicture = thumb.getAttribute("href"); 
-    dialogPicture.src = bigPicture;                 // Bild im Dialog setzen
-
-    dialogRef.showModal();                          // Dialog öffnen
-  });
-});
-
-
-const closeBtn = document.getElementById("closePictureDialogButton");
-closeBtn.addEventListener("click", () => {
-  dialogRef.close();
-});
-
-function showImageAt(index) {
-  const thumb = thumbnails[index];
-  const bigPicture = thumb.getAttribute("href");
-  dialogPicture.src = bigPicture;
-  dialogRef.showModal();
+function openPictureDialog(index) {
   currentIndex = index;
+  const pictureSource = THUMBNAILS[index].dataset.big;
+  showPictureInDialog(pictureSource);
 }
 
-thumbnails.forEach((thumb, index) => {
-  thumb.addEventListener("click", (e) => {
-    e.preventDefault();
-    showImageAt(index);
-  });
-});
+ /* Shows the given picture source inside the dialog with a fade animation.
+  @param {string} pictureSource - Source of the image to show.*/
+ 
+function showPictureInDialog(pictureSource) {
+  if (!DIALOG_REF || !DIALOG_PICTURE) {
+    return;
+  }
 
-const prevBtn = document.querySelector(".picture-back-nav");
-const nextBtn = document.querySelector(".picture-next-nav");
+  if (!DIALOG_REF.open) {
+    DIALOG_REF.showModal();
+  }
 
-nextBtn.addEventListener("click", () => {
-  // TODO: currentIndex erhöhen und showImageAt() aufrufen
-});
+  DIALOG_PICTURE.classList.remove("fade-in");
+  DIALOG_PICTURE.classList.add("fade-out");
 
-prevBtn.addEventListener("click", () => {
-  // TODO: currentIndex verringern und showImageAt() aufrufen
-});
+  window.setTimeout(() => {
+    DIALOG_PICTURE.src = pictureSource;
+    DIALOG_PICTURE.classList.remove("fade-out");
+    DIALOG_PICTURE.classList.add("fade-in");
+  }, FADE_DURATION_MS);
+}
+
+      /* Closes the picture dialog*/
+
+function closePictureDialog() {
+  if (!DIALOG_REF) {
+    return;
+  }
+
+  DIALOG_REF.close();
+}
+
+      /* Shows the next picture in the thumbnail list.*/
+
+function showNextPicture() {
+  const lastIndex = THUMBNAILS.length - 1;
+
+  if (currentIndex >= lastIndex) {
+    currentIndex = 0;
+  } else {
+    currentIndex += 1;
+  }
+
+  openPictureDialog(currentIndex);
+}
+
+      /* Shows the previous picture in the thumbnail list.*/
+
+function showPrevPicture() {
+  const lastIndex = THUMBNAILS.length - 1;
+
+  if (currentIndex <= 0) {
+    currentIndex = lastIndex;
+  } else {
+    currentIndex -= 1;
+  }
+
+  openPictureDialog(currentIndex);
+}
+
+      /*Use ArrowKeys and Esc without(!) EventListener */
+
+function handleKeys(event) {
+  if (event.key === "Escape") {
+    closePictureDialog();
+  }
+
+  if (event.key === "ArrowRight") {
+    showNextPicture();
+  }
+
+  if (event.key === "ArrowLeft") {
+    showPrevPicture();
+  }
+}
