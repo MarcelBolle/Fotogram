@@ -8,10 +8,8 @@
   --color-accent: #d519e2;
   --color-text-light: #ffffff;
 
-  --spacing-xs: 0.5rem;
-  --spacing-s: 0.75rem;
-  --spacing-m: 1rem;
-  --spacing-l: 2.5rem;
+  --spacing-m: 30px;
+  --spacing-l: 64px;
 
   --dialog-max-width: 90vw;
   --dialog-max-height: 90vh;
@@ -42,15 +40,22 @@ body {
    ========================================================= */
 
 .topheader {
-  display: flex;
-  align-items: center;
-  justify-content: start;
+ 
   padding: 24px;
   background-color: var(--color-header-footer-bg);
 }
 
 .topheader img {
   width: 240px;
+}
+
+.Content-limitaion {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;        
+  display: flex;         
+  align-items: center;
+  justify-content: space-between;
 }
 
 main {
@@ -67,9 +72,6 @@ main {
 }
 
 footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 16px;
   background-color: var(--color-header-footer-bg);
 }
@@ -127,7 +129,7 @@ h1 {
 }
 
 /* =========================================================
-   Dialog / Lightbox
+   Dialog 
    ========================================================= */
 
 .picture-dialog {
