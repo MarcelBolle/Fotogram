@@ -137,19 +137,16 @@ h1 {
   border-radius: 12px;
   inset: 50% auto auto 50%;
   transform: translate(-50%, -50%);
-  max-width: var(--dialog-max-width);
-  max-height: var(--dialog-max-height);
+  max-width: 90vw;
+  max-height: 90vh;
 }
 
 .picture-dialog::backdrop {
   background: rgba(0, 0, 0, 0.7);
 }
 
+
 .dialog-frame {
-  width: 75vw;
-  max-width: 900px;
-  height: 70vh;
-  max-height: 900px;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-m);
@@ -157,7 +154,13 @@ h1 {
   border: 4px solid var(--color-accent);
   border-radius: 12px;
   background-color: var(--color-page-bg);
+  width: min(75vw, 1200px);
+  height: min(80vh, 700px);  
+  max-height: 90vh;          
+  overflow: hidden;          
 }
+
+
 
 .dialog-header {
   display: flex;
@@ -179,6 +182,7 @@ h1 {
 
 .dialog-section {
   flex: 1;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,6 +197,8 @@ h1 {
   object-fit: contain;
 }
 
+
+
 .dialog-buttons {
   display: flex;
   align-items: center;
@@ -200,6 +206,7 @@ h1 {
   gap: 1rem;
   width: 100%;
 }
+
 
 .picture-back-nav,
 .picture-next-nav {
@@ -268,6 +275,7 @@ h1 {
 @media (max-width: 480px) {
   .dialog-frame {
     padding: 10px;
+    height: 75vh;        
   }
 
   .picture-back-nav,
